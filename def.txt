@@ -1,0 +1,33 @@
+Block{
+    timestamp
+    lasthash
+    data
+    hash
+}
+
+TDD test driven development approach
+
+Next create a genesis block
+
+Now mine block  
+
+Hash the block - SHA256 - 256bits in 64 chaaracter hexadecimal format
+
+Now crate a chain
+
+chain validation
+    inspect a blockchain for its correctness
+chain replacement
+    longer chain - replace chain function
+    
+
+POW system 
+    add nounce and dificulty to block
+
+Blockchian network
+    creating API's in express to read and write data to blockchain
+
+Networking pattern
+    Pub/Sub - Broadcast and listen
+    redis for channel pub/sub
+    Pubnub or redis
