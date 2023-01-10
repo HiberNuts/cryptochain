@@ -31,3 +31,8 @@ Networking pattern
     Pub/Sub - Broadcast and listen
     redis for channel pub/sub
     Pubnub or redis
+
+    sync all chains
+
+Wallets, keys transactions
+    
