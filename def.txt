@@ -35,4 +35,6 @@ Networking pattern
     sync all chains
 
 Wallets, keys transactions
-    
+    Create test wallet classes
+    eliptic curve cryptography for keys
+    sign keys

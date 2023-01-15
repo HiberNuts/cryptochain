@@ -1,7 +1,7 @@
 const express = require("express");
 const Blockchain = require("./blockchain");
 const bodyParser = require("body-parser");
-const PubSub = require("./pubsub");
+const PubSub = require("./app/pubsub");
 const request = require("request");
 
 const app = express();
@@ -11,8 +11,6 @@ const pubsub = new PubSub({ blockchain });
 const DEFAULT_PORT = 3000;
 
 const ROOT_NODE_ADDRESS = `http://localhost:${DEFAULT_PORT}`;
-
-
 
 app.use(bodyParser.json());
 app.get("/api/blocks", (req, res) => {
