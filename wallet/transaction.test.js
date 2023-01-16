@@ -30,6 +30,7 @@ describe("Transaction", () => {
     });
   });
 
+  
   describe("input", () => {
     it("has an input", () => {
       expect(transaction).toHaveProperty("input");
@@ -80,13 +81,21 @@ describe("Transaction", () => {
           expect(errorMock).toHaveBeenCalled();
         });
       });
-      describe("and a trsanction input signature is invaid", () => {
+      describe("and a transaction input signature is invaid", () => {
         it("returns false and logs error", () => {
-          transaction.input.signature = new Wallet().sogn("data");
+          transaction.input.signature = new Wallet().sign("data");
           expect(Transaction.validTransaction(transaction)).toBe(false);
           expect(errorMock).toHaveBeenCalled();
         });
       });
     });
+  });
+
+  describe("update()", () => {
+    it("outputs the amount to next recipient", () => {});
+
+    it("subtracts the amount from riginal sender output amount", () => {});
+
+    it("maintains a total output that matches the input amount", () => {});
   });
 });
