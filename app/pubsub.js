@@ -118,13 +118,13 @@ class PubSub {
             });
             break;
           case CHANNELS.TRANSACTION:
-            if (
-              !this.transactionPool.existingTransaction({
-                inputAddress: this.wallet.publicKey,
-              })
-            ) {
-              this.transactionPool.setTransaction(parsedMessage);
-            }
+            // if (
+            // !this.transactionPool.existingTransaction({
+            //     inputAddress: this.wallet.publicKey,
+            //   })
+            // ) {
+            this.transactionPool.setTransaction(parsedMessage);
+            // }
             break;
           default:
             return;

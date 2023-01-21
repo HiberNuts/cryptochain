@@ -38,3 +38,10 @@ Wallets, keys transactions
     Create test wallet classes
     eliptic curve cryptography for keys
     sign keys
+
+Miner
+    1. Grab all the valid transaction in the pool
+    2. Genearte a miners reward
+    3. Do the CPU work to find a valid hash
+    4. Broadcast the updated blockchain
+    5. clear the transaction pool
