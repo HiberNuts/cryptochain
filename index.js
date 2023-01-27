@@ -34,22 +34,28 @@ app.post("/api/mine", (req, res) => {
 
 app.post("/api/transact", (req, res) => {
   const { amount, recipient } = req.body;
+
   let transaction = transactionPool.existingTransaction({ inputAddress: wallet.publicKey });
+
   try {
     if (transaction) {
-      transaction.update({ senderWallet: wallet, amount: amount, recipient: recipient });
+      transaction.update({ senderWallet: wallet, recipient, amount });
     } else {
-      transaction = wallet.createTransaction({ amount: amount, recipient: recipient });
+      transaction = wallet.createTransaction({
+        recipient,
+        amount,
+        chain: blockchain.chain,
+      });
     }
   } catch (error) {
-    return res.status(400).json({ type: "Error", message: error.message });
+    return res.status(400).json({ type: "error", message: error.message });
   }
 
   transactionPool.setTransaction(transaction);
 
   pubsub.broadcastTransaction(transaction);
 
-  res.json({ type: "Success", transaction });
+  res.json({ type: "success", transaction });
 });
 
 app.get("/api/transaction-pool-map", (req, res) => {
@@ -58,7 +64,6 @@ app.get("/api/transaction-pool-map", (req, res) => {
 
 app.get("/api/mine-transactions", (req, res) => {
   transactionMiner.mineTransaction();
-
   res.redirect("/api/blocks");
 });
 

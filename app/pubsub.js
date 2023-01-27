@@ -146,6 +146,7 @@ class PubSub {
       message: JSON.stringify(this.blockchain.chain),
     });
   }
+  
 
   broadcastTransaction(transaction) {
     this.publish({
@@ -156,3 +157,6 @@ class PubSub {
 }
 
 module.exports = PubSub;
+
+
+
