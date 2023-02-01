@@ -47,7 +47,7 @@ class Blockchain {
     if (!this.isValidChain(chain)) {
       return;
     }
-    
+
     if (onSuccess) {
       onSuccess();
     }
